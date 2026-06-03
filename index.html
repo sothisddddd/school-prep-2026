@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎒 小学校入学準備ハブ｜夏の準備ガイド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --off-white: #f5f4f0;
+      --gray-100: #f0eeea;
+      --gray-300: #d0cdc6;
+      --gray-500: #8a8780;
+      --gray-700: #404040;
+      --key: #37A175;
+      --key-dark: #2a7a58;
+      --key-light: #d0ede2;
+      --border: #1a1a1a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.45rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 35s linear infinite;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-sep {
+      display: inline-block;
+      margin: 0 2rem;
+      color: var(--key);
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 2px solid var(--black);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--gray-300);
+    }
+    .site-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+    .site-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .site-logo span { color: var(--key); }
+    .header-date {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-500);
+      text-transform: uppercase;
+    }
+    .header-nav {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .header-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-right: 1px solid var(--gray-300);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .header-nav a:first-child { border-left: 1px solid var(--gray-300); }
+    .header-nav a:hover { background: var(--black); color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      border-bottom: 2px solid var(--black);
+      display: grid;
+      grid-template-columns: 1fr 300px;
+    }
+    .hero-main {
+      padding: 3rem 2.5rem;
+      border-right: 2px solid var(--black);
+    }
+    .hero-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--key);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2px;
+      background: var(--key);
+    }
+    .hero-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline .accent {
+      color: var(--key);
+      font-style: italic;
+    }
+    .hero-subhead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--gray-700);
+      max-width: 560px;
+      border-left: 3px solid var(--black);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+    .hero-meta strong { color: var(--black); }
+    .hero-side {
+      padding: 2rem;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-side-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 0.8rem;
+    }
+    .hero-side-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--key);
+    }
+    .hero-side-stat { margin-bottom: 2rem; }
+    .hero-side-stat p { font-size: 0.8rem; color: var(--gray-300); line-height: 1.7; }
+
+    /* ── alert box: 黒背景・白文字 ── */
+    .alert-box {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      text-align: center;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--black);
+      background: var(--black);
+      color: var(--white);
+    }
+    .section-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .section-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--key);
+      color: var(--white);
+      padding: 0.2rem 0.6rem;
+    }
+    .section-desc {
+      margin-left: auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+
+    /* ── MONTH GRID (3カラム) ── */
+    .month-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 2px solid var(--black);
+    }
+    .month-col {
+      padding: 2.5rem 2rem;
+      border-right: 2px solid var(--black);
+    }
+    .month-col:last-child { border-right: none; }
+
+    .month-col-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--black);
+    }
+    .month-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--key);
+      margin-bottom: 0.6rem;
+    }
+    .month-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--key);
+    }
+    .month-subtitle {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-wrap { margin-top: 1rem; }
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 0.4rem;
+    }
+    .progress-track { height: 2px; background: var(--gray-300); }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--key);
+      transition: width 0.6s ease;
+    }
+
+    /* ── TASK GROUP ── */
+    .task-group { margin-bottom: 1.8rem; }
+    .task-group-header {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--key);
+      padding: 0.4rem 0;
+      border-top: 1px solid var(--black);
+      border-bottom: 1px solid var(--gray-300);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── TASK ITEM ── */
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--gray-300);
+      cursor: pointer;
+      transition: background 0.1s, padding 0.1s;
+    }
+    .task-item:hover {
+      background: var(--gray-100);
+      margin: 0 -0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .task-check {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--black);
+      flex-shrink: 0;
+      margin-top: 3px;
+      position: relative;
+      transition: background 0.15s;
+    }
+    .task-check.done {
+      background: var(--key);
+      border-color: var(--key);
+    }
+    .task-check.done::after {
+      content: '';
+      position: absolute;
+      top: 1px; left: 4px;
+      width: 5px; height: 8px;
+      border: 2px solid white;
+      border-top: none; border-left: none;
+      transform: rotate(45deg);
+    }
+    .task-name {
+      font-size: 0.86rem;
+      font-weight: 500;
+      line-height: 1.5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .task-name.done-text {
+      text-decoration: line-through;
+      color: var(--gray-500);
+    }
+    .task-note {
+      font-size: 0.73rem;
+      color: var(--gray-500);
+      margin-top: 0.2rem;
+      line-height: 1.65;
+    }
+
+    /* ── TAGS: 黒ボックス・白文字 ── */
+    .tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      background: var(--black);
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    /* ── SUMMARY BAND ── */
+    .summary-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 2px solid var(--black);
+    }
+    .summary-cell {
+      padding: 2rem;
+      border-right: 1px solid var(--black);
+      text-align: center;
+    }
+    .summary-cell:last-child { border-right: none; }
+    .summary-cell-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      color: var(--key);
+    }
+    .summary-cell-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-left {
+      padding: 2rem;
+      border-right: 1px solid var(--black);
+    }
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--key); }
+    .footer-note { font-size: 0.73rem; color: var(--gray-500); line-height: 1.8; }
+    .footer-right {
+      padding: 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { display: none; }
+      .hero-main { border-right: none; padding: 2rem 1.2rem; }
+      .hero-headline { font-size: 3.5rem; }
+      .month-grid { grid-template-columns: 1fr; }
+      .month-col { border-right: none; border-bottom: 2px solid var(--black); }
+      .month-col:last-child { border-bottom: none; }
+      .month-col { padding: 2rem 1.2rem; }
+      .summary-band { grid-template-columns: repeat(2, 1fr); }
+      .summary-cell:nth-child(2) { border-right: none; }
+      .summary-cell:nth-child(3) { border-top: 1px solid var(--black); }
+      .summary-cell:nth-child(4) { border-top: 1px solid var(--black); border-right: none; }
+      footer { grid-template-columns: 1fr; }
+      .footer-left { border-right: none; border-bottom: 1px solid var(--black); }
+      .footer-right { justify-content: flex-start; }
+      .header-top { padding: 0.8rem 1.2rem; }
+      .section-desc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <span class="ticker-inner">
+      ELEMENTARY SCHOOL PREP 2026 <span class="ticker-sep">◆</span>
+      6月：あいさつ・通学路・学童保育の資料収集 <span class="ticker-sep">◆</span>
+      7月：ランドセル購入が最優先タスク <span class="ticker-sep">◆</span>
+      8月：就学関連の下調べを完了させる <span class="ticker-sep">◆</span>
+      3月生まれのお子さん、焦らず段階的に準備しましょう <span class="ticker-sep">◆</span>
+      ELEMENTARY SCHOOL PREP 2026 <span class="ticker-sep">◆</span>
+      6月：あいさつ・通学路・学童保育の資料収集 <span class="ticker-sep">◆</span>
+      7月：ランドセル購入が最優先タスク <span class="ticker-sep">◆</span>
+      8月：就学関連の下調べを完了させる <span class="ticker-sep">◆</span>
+      3月生まれのお子さん、焦らず段階的に準備しましょう <span class="ticker-sep">◆</span>
+    </span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <span class="site-tag">Family Guide / 家族向けガイド</span>
+      <div class="site-logo">PREP <span>HUB</span></div>
+      <span class="header-date">Est. 2026 / Summer Edition</span>
+    </div>
+    <div class="header-nav">
+      <a href="#months">June / 6月</a>
+      <a href="#july">July / 7月</a>
+      <a href="#august">Aug / 8月</a>
+      <a href="#summary">Summary</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-kicker">小学校入学準備ハブ — Summer 2026</div>
+      <h1 class="hero-headline">
+        夏の<br>
+        準備を<br>
+        <span class="accent">今から。</span>
+      </h1>
+      <p class="hero-subhead">
+        3月生まれのため、焦らず段階的に進める計画です。<br>
+        6月・7月・8月にすべきことを整理しました。
+      </p>
+      <div class="hero-meta">
+        <span><strong>6月</strong> — 5 Tasks</span>
+        <span><strong>7月</strong> — 4 Tasks</span>
+        <span><strong>8月</strong> — 4 Tasks</span>
+        <span><strong>合計</strong> — 13 Actions</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div>
+        <div class="hero-side-label">Days Until Apr 2027</div>
+        <div class="hero-side-num">300<span style="font-size:2rem">+</span></div>
+      </div>
+      <div class="hero-side-stat">
+        <div class="hero-side-label">Key Alert</div>
+        <p>ランドセルの<br>人気モデルは<br><span class="alert-box">7月完売注意</span></p>
+      </div>
+      <div class="hero-icon">🎒</div>
+    </div>
+  </section>
+
+  <!-- MONTHS SECTION -->
+  <div class="section-header" id="months">
+    <span class="section-num">01–03</span>
+    <h2>June · July · August / 夏の3ヶ月</h2>
+    <span class="section-desc">Notionデータより整理</span>
+  </div>
+
+  <div class="month-grid">
+
+    <!-- ── JUNE ── -->
+    <div class="month-col" id="june">
+      <div class="month-col-header">
+        <div class="month-eyebrow">Month 01 — Action Items</div>
+        <div class="month-name">June</div>
+        <div class="month-subtitle">生活習慣と情報収集がメイン</div>
+        <div class="progress-wrap">
+          <div class="progress-info">
+            <span>Progress</span>
+            <span id="june-pct">0 / 5</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="june-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">Lifestyle / 生活習慣</div>
+        <div class="task-item" onclick="toggle(this,'june')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">あいさつの習慣づけを始める</div>
+            <div class="task-note">「おはようございます」「さようなら」を日常会話で練習</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'june')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">交通ルールを一緒に確認する</div>
+            <div class="task-note">信号の渡り方・歩道の歩き方など外出のたびに声かけ</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'june')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">和式トイレの使い方を練習する <span class="tag">要確認</span></div>
+            <div class="task-note">学校によっては和式のみの場合も。公園や施設で練習を</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">Admin / 手続き・情報収集</div>
+        <div class="task-item" onclick="toggle(this,'june')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">学童保育の資料を入手・確認 <span class="tag">時期あり</span></div>
+            <div class="task-note">資料配布が6月ごろ始まる自治体が多い。申込期限・条件を早めにチェック</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'june')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">通学路の安全確認・親子で歩く</div>
+            <div class="task-note">自宅〜小学校のルートを歩き、危険箇所・信号・横断歩道を把握</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JULY ── -->
+    <div class="month-col" id="july">
+      <div class="month-col-header">
+        <div class="month-eyebrow">Month 02 — Purchase & Research</div>
+        <div class="month-name">July</div>
+        <div class="month-subtitle">ランドセル購入が最優先</div>
+        <div class="progress-wrap">
+          <div class="progress-info">
+            <span>Progress</span>
+            <span id="july-pct">0 / 4</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="july-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">Shopping / 購入</div>
+        <div class="task-item" onclick="toggle(this,'july')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">ランドセルの候補を絞る <span class="tag">下調べ</span></div>
+            <div class="task-note">工房系・メーカー系の違い、重さ・容量・フィット感を比較。店舗試着も</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'july')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">ランドセルを購入する <span class="tag">期限あり</span></div>
+            <div class="task-note">人気モデルは6〜7月に完売。展示会・ショールームへ早めに</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">Research / 下調べ</div>
+        <div class="task-item" onclick="toggle(this,'july')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">学校説明会の日程を把握する</div>
+            <div class="task-note">秋〜冬ごろ実施が多い。学校ウェブサイトや自治体広報を確認</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'july')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">GPS・防犯グッズの下調べ</div>
+            <div class="task-note">GPS端末・防犯ブザーのタイプを比較。ランドセルに付けやすいものを</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AUGUST ── -->
+    <div class="month-col" id="august">
+      <div class="month-col-header">
+        <div class="month-eyebrow">Month 03 — School Prep</div>
+        <div class="month-name">Aug</div>
+        <div class="month-subtitle">就学関連の下調べを完結させる</div>
+        <div class="progress-wrap">
+          <div class="progress-info">
+            <span>Progress</span>
+            <span id="aug-pct">0 / 4</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="aug-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">School / 就学関連</div>
+        <div class="task-item" onclick="toggle(this,'aug')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">就学時健康診断の案内を把握する <span class="tag">要確認</span></div>
+            <div class="task-note">自治体から10〜11月ごろ通知が届く。いつ・どこで行われるか事前確認</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'aug')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">学童保育の申込条件・期限を確認</div>
+            <div class="task-note">自治体によっては秋に申込が始まる。共働きの場合は優先度高め</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-group">
+        <div class="task-group-header">Habit / 生活習慣の継続</div>
+        <div class="task-item" onclick="toggle(this,'aug')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">通学路の歩き練習を重ねる</div>
+            <div class="task-note">夏休み中に繰り返し歩いて道順を体で覚えさせる。一人歩きのイメージも</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this,'aug')">
+          <div class="task-check"></div>
+          <div class="task-text">
+            <div class="task-name">早寝早起きのリズムを崩さない <span class="tag">継続</span></div>
+            <div class="task-note">夏休みで生活リズムが乱れやすい。9月以降を見据えて朝型をキープ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /month-grid -->
+
+  <!-- SUMMARY BAND -->
+  <div class="summary-band" id="summary">
+    <div class="summary-cell">
+      <div class="summary-cell-num">5</div>
+      <div class="summary-cell-label">June / 6月<br>タスク数</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-cell-num">4</div>
+      <div class="summary-cell-label">July / 7月<br>タスク数</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-cell-num">4</div>
+      <div class="summary-cell-label">Aug / 8月<br>タスク数</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-cell-num">13</div>
+      <div class="summary-cell-label">Total<br>夏の合計アクション</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-logo">PREP <span>HUB</span> 2026</div>
+      <p class="footer-note">
+        小学校入学準備ハブ — 夏の準備ガイド（6・7・8月）<br>
+        Notionデータをもとに生成 ｜ 3月生まれのため焦らず段階的に
+      </p>
+    </div>
+    <div class="footer-right">
+      <span class="footer-copy">Elementary School Entrance Prep / Summer 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggle(item, month) {
+      const check = item.querySelector('.task-check');
+      const name = item.querySelector('.task-name');
+      check.classList.toggle('done');
+      name.classList.toggle('done-text');
+      updateProgress(month);
+    }
+
+    function updateProgress(month) {
+      const col = document.getElementById(month);
+      const all = col.querySelectorAll('.task-check');
+      const done = col.querySelectorAll('.task-check.done');
+      const pct = (done.length / all.length) * 100;
+      document.getElementById(`${month}-bar`).style.width = pct + '%';
+      document.getElementById(`${month}-pct`).textContent = `${done.length} / ${all.length}`;
+    }
+  </script>
+
+</body>
+</html>
